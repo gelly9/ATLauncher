@@ -16,6 +16,7 @@ class HomeAppAdapter extends RecyclerView.Adapter<HomeAppAdapter.AppViewHolder> 
     interface AppClickListener {
         void onAppClicked(int position);
     }
+
     @NonNull
     private List<AppModel> list;
     private AppClickListener listener;
