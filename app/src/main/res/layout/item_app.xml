@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -19,9 +20,10 @@
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/content_padding"
             android:scaleType="centerCrop"
-            android:src="@{viewModel.appModel.icon}" />
+            android:src="@{viewModel.appModel.icon}"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/title"

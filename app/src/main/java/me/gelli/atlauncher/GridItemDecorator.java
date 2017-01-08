@@ -5,6 +5,9 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+/**
+ * Decorator class that divides the space evenly between items
+ */
 class GridItemDecorator extends RecyclerView.ItemDecoration {
 
     private final int screenWidth;

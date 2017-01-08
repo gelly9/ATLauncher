@@ -12,14 +12,17 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adapter class for the RecyclerView used on {@link HomeActivity}
+ */
 class HomeAppAdapter extends RecyclerView.Adapter<HomeAppAdapter.AppViewHolder> {
     interface AppClickListener {
         void onAppClicked(int position);
     }
 
     @NonNull
-    private List<AppModel> list;
-    private AppClickListener listener;
+    private final List<AppModel> list;
+    private final AppClickListener listener;
 
     HomeAppAdapter(@NonNull List<AppModel> activityList, AppClickListener clickListener) {
         this.list = new ArrayList<>();
