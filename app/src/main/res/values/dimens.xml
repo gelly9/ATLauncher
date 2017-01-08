@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_item_size">360dp</dimen>
+    <dimen name="between_items">40dp</dimen>
+    <dimen name="icon_size">120dp</dimen>
+</resources>
