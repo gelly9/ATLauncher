@@ -3,6 +3,7 @@ package me.gelli.atlauncher;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,11 @@ class HomeAppAdapter extends RecyclerView.Adapter<HomeAppAdapter.AppViewHolder> 
     interface AppClickListener {
         void onAppClicked(int position);
     }
-
+    @NonNull
     private List<AppModel> list;
     private AppClickListener listener;
 
-    HomeAppAdapter(List<AppModel> activityList, AppClickListener clickListener) {
+    HomeAppAdapter(@NonNull List<AppModel> activityList, AppClickListener clickListener) {
         this.list = new ArrayList<>();
         this.list.addAll(activityList);
         this.list.addAll(activityList);
