@@ -1,6 +1,5 @@
 package me.gelli.atlauncher;
 
-
 import android.graphics.drawable.Drawable;
 
 public class AppModel {

@@ -16,19 +16,19 @@ import java.util.List;
  * Adapter class for the RecyclerView used on {@link HomeActivity}
  */
 class HomeAppAdapter extends RecyclerView.Adapter<HomeAppAdapter.AppViewHolder> {
+    /**
+     * Handles click of the items in the adapter
+     */
     interface AppClickListener {
         void onAppClicked(int position);
     }
 
     @NonNull
-    private final List<AppModel> list;
+    private List<AppModel> list;
     private final AppClickListener listener;
 
-    HomeAppAdapter(@NonNull List<AppModel> activityList, AppClickListener clickListener) {
+    HomeAppAdapter(@NonNull AppClickListener clickListener) {
         this.list = new ArrayList<>();
-        this.list.addAll(activityList);
-        this.list.addAll(activityList);
-        this.list.addAll(activityList);
         this.listener = clickListener;
     }
 
@@ -50,6 +50,11 @@ class HomeAppAdapter extends RecyclerView.Adapter<HomeAppAdapter.AppViewHolder> 
 
     AppModel getItemAt(int position) {
         return list.get(position);
+    }
+
+    void refresh(List<AppModel> list) {
+        this.list = list;
+        notifyDataSetChanged();
     }
 
     static class AppViewHolder extends RecyclerView.ViewHolder {

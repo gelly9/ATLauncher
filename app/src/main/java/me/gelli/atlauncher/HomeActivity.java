@@ -27,7 +27,7 @@ public class HomeActivity extends Activity {
         binding.recyclerView.addItemDecoration(new GridItemDecorator(
                 getResources().getDimensionPixelSize(R.dimen.app_item_size),
                 getResources().getDimensionPixelSize(R.dimen.between_items)));
-        adapter = new HomeAppAdapter(getActivityList(), new HomeAppAdapter.AppClickListener() {
+        adapter = new HomeAppAdapter(new HomeAppAdapter.AppClickListener() {
             @Override
             public void onAppClicked(int position) {
                 Intent intent = getPackageManager().getLaunchIntentForPackage(adapter.getItemAt(position).getPackageName());
@@ -39,11 +39,17 @@ public class HomeActivity extends Activity {
         binding.recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getActivityList();
+    }
+
     /**
      * Used to return a list of {@link ApplicationInfo} reflecting the installed applications on the system
      */
     @NonNull
-    private List<AppModel> getActivityList() {
+    private void getActivityList() {
         List<AppModel> list = new ArrayList<>();
         List<ResolveInfo> queryIntentActivities = getPackageManager().queryIntentActivities(new Intent(Intent.ACTION_MAIN, null).addCategory(Intent.CATEGORY_LAUNCHER), 0);
         for (ResolveInfo resInfo : queryIntentActivities) {
@@ -61,6 +67,6 @@ public class HomeActivity extends Activity {
                 }
             }
         }
-        return list;
+        adapter.refresh(list);
     }
 }
